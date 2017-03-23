@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<img src="/Users/1066330/Desktop/Valadez/_assets/images/banner.png" alt="banner">
+	<link type="text/css" rel="stylesheet" href="https://danival6.github.io/css/styles.css" media="screen">
+	<link rel="shortcut icon" href="_assets/images/favicon.png">
+	<meta charset="utf-8">
+	<title>Web Portfolio: Daniela's Graphics Page</title>
+
+<script>
+	//create a global variables to be used later 
+	var video, speed, volume;
+
+function init() { 
+  // initialize the player 
+  // first, get the media element and assign it to the video variable
+  video = document.getElementById('myvideo');   
+
+// get the current playbackRate from the HTML5 media API 
+  // range is 0 to very fast, with 1 being normal playback 
+  speed = video.playbackRate;   
+
+// volume range is 0 to 1 
+  // set it in the middle so we have room to move it with our buttons
+  volume = 0.5;
+  video.volume = volume; 
+}
+function play() {       
+  video.play(); 
+}
+      
+function pause() {       
+  video.pause();
+}
+      
+function changeSpeed(direction) { 
+  // direction is either 'up' (faster) or 'down' (slower) 
+  if (direction == 'up') { 
+    if (speed < 10) { 
+      // increase playbackRate 
+      speed = speed + 0.1; 
+    }
+  }  
+  else if (direction == 'down') { 
+    if (speed > 0) {
+      // decrease playbackRate
+      speed = speed - 0.1; 
+    }
+  }
+  // so far all we've done is change the value of our speed variable 
+  // not let's assign it to the player 
+  video.playbackRate = speed;           
+}
+      
+function changeVolume(direction) { 
+  if (direction == 'up') { 
+    // if not fully cranked yet, increase volume 
+    if (volume < 0.9) {
+      volume = volume + 0.1; 
+    }
+  }  
+  else if (direction == 'down') { 
+    // if not muted, decrease volume
+    if (volume > 0.1) {  
+      volume = volume - 0.1; 
+    }
+  }       
+  // so far all we've done is change the value of our volume variable 
+  // not let's assign it to the player 
+  video.volume = volume;            
+} 
+      
+// wait until the web page has finished loading, then run the init function
+window.onload = init;
+
+</script>
+
+</head>
+<body>
+	<h1>Web Portfolio: Daniela's Video Page</h1>
+
+	<div>
+
+		<video id="myvideo" poster="_assets/video/code.jpg">
+			<source src="_assets/video/code.mp4"  type"video/mp4"></source>
+			<source src="_assets/video/code.webm"  type"video/webm"></source>
+
+		<track scr="_assets/video/code.vtt" kind="captions"scrlang="en" default></track>
+	</video> 
+	<div id="myplayer">
+  <button onclick="play()">Play</button>
+  <button onclick="pause()">Pause</button>
+  <button onclick="changeSpeed('up')">Faster</button>
+  <button onclick="changeSpeed('down')">Slower</button>
+  <button onclick="changeVolume('up')">Louder</button>
+  <button onclick="changeVolume('down')">Softer</button>
+</div>    
+	</div>
+	
+	<h1> PSA video </h1>
+	<div> This video that I did with my group shows what is CTE.</div>
+	<div>
+		<video preload="auto" poster="_assets/video/cte.jpg" height="500" width="700" controls>
+			
+			<source src="_assets/video/cte.mp4"  type"video/mp4"></source>
+			<source src="_assets/video/cte.webm"  type"video/webm"></source>
+
+  		
+		<track scr="_assets/video/cte.vtt" kind="captions"scrlang="en" default></track>
+
+</video>	
+
+      	
+	</div>
+	<div>
+		 <img src="_assets/video/cte.png"height="500" width="700"/>
+		</div>
+		
+	</p>
+	<!--The content of your web page will go here-->
+</body>
+</html>
